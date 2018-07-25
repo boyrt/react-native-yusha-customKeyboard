@@ -12,7 +12,29 @@ import styles, {
 
 import InteractionManager from '../HFInteractionManager'
 
-const numberKeys = [
+const keys = [
+    { mainText: '1', otherText: '' },
+    { mainText: '2', otherText: 'ABC' },
+    { mainText: '3', otherText: 'DEF' },
+    { mainText: '4', otherText: 'GHI' },
+    { mainText: '5', otherText: 'JKL' },
+    { mainText: '6', otherText: 'MNO' },
+    { mainText: '7', otherText: 'PQRS' },
+    { mainText: '8', otherText: 'TUV' },
+    { mainText: '9', otherText: 'WXYZ' }
+]
+
+function randomsort(a, b) {
+    return Math.random()>.5 ? -1 : 1;
+    //用Math.random()函数生成0~1之间的随机数与0.5比较，返回-1或1
+}
+
+function randomKeys(arr) {
+    arr.sort(randomsort)
+    return arr;
+}
+
+let numberKeys = [
     [
         { mainText: '1', otherText: '' },
         { mainText: '2', otherText: 'ABC' },
@@ -35,6 +57,13 @@ class Keyboard extends PureComponent {
 
     constructor(props) {
         super(props);
+        let arr = randomKeys(keys)
+        for (let i=0;i<numberKeys.length;i++){
+            for (let j=0;j<3;j++){
+                let index = i*3+j;
+                numberKeys[i][j]=arr[index]
+            }
+        }
     }
 
     _clearAll() {
