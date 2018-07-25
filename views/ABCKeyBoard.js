@@ -207,7 +207,7 @@ export default class ABCKeyBoard extends PureComponent {
 
 const rowHeight = 54
 const vSpacing = 6
-const hSpacing = 8
+const hSpacing = 5
 const keys = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
